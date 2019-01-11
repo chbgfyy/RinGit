@@ -501,3 +501,5 @@ install.packages(c("tidyr", "dplyr", "knitr", "rmarkdown", "formatR"))
 library(dplyr)
 
 library(gapminder)
+
+head(gap)
