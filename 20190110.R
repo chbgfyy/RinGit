@@ -520,4 +520,12 @@ ggplot(data = triage, aes(x = X...group, y = presum,
                           color=X...group)) +
   geom_boxplot()
 
+ggplot(data = triage, aes(x = X...group, y = postsum, 
+                          color=X...group)) +
+  geom_boxplot()
+
+ggplot(data = triage, aes(x = X...group, y = fidelity, 
+                          color=X...group)) +
+  geom_boxplot()
+
   
