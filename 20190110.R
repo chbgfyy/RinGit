@@ -504,3 +504,20 @@ library(gapminder)
 
 head(gap)
 
+triage <- Triage
+
+str(triage)
+
+colnames(triage)
+
+library(ggplot2)
+
+ggplot(data = triage, aes(x = X...group, y = presum, 
+       color=X...group)) +
+  geom_point()
+
+ggplot(data = triage, aes(x = X...group, y = presum, 
+                          color=X...group)) +
+  geom_boxplot()
+
+  
