@@ -317,3 +317,11 @@ summary(x)
 summary(c(x,y))
 summary(y)
 
+a <- 2.2e-16
+print(a)
+
+x <- c (42,65,75,78,59,71,57,68,54,55)
+n <- length(x)
+chi2 <- (n-1)*var(x)/80
+p <- 1-pchisq(chi2, n-1)
+cat("Chi-squared = ", chi2, " p-value= ", p, "\n")
