@@ -325,3 +325,4 @@ n <- length(x)
 chi2 <- (n-1)*var(x)/80
 p <- 1-pchisq(chi2, n-1)
 cat("Chi-squared = ", chi2, " p-value= ", p, "\n")
+
