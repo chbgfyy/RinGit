@@ -238,6 +238,7 @@ qqnorm(x)
 qqline(x)
 boxplot(rt(100, 3))
 
+#QQPLOT and line
 str(triage)
 str(Triage)
 qqnorm(triage$gender)
@@ -255,6 +256,7 @@ hist(x)
 boxplot(x)
 qqnorm(x)
 
+#正态分布转换
 x <- exp(rnorm(30, 0, 1))
 print(x)
 hist(x); locator(1)
@@ -262,15 +264,18 @@ y <- log(x)
 hist(y); locator(1)
 y
 
+#100个正态分布样本，估计总体在[5， 15]之间取值的概率
 x <- rnorm(100, 10,3)
 mu <- mean(x)
 sig <- sd(x)
 p = pnorm(15, mu, sig) - pnorm (5, mu, sig)
 cat("Prob in [5, 15] = ", p, "\n")
 
+#估计总体在[5， 10]之间取值的概率
 p = pnorm(10, mu, sig) - pnorm(5, mu, sig)
 cat("Prob in [5, 10] = ", p, "\n")
 
+#最大似然函数
 objf <- function(theta, x) {
   mu <- theta [1]
   s2 <- exp(theta[2])
@@ -282,27 +287,35 @@ x <- c (1:100)
 cat("objf", "\n")
 print(objf)
 
+#Confidence interval
 x <- c(11.67, 9.29, 10.45, 9.01, 12.67,
        16.24, 11.64, 7.73, 12.23)
 t.test(x, conf.level=0.95)
 
+# confidence interval my traige data
 x <- triage$postave
 t.test(x, conf.level=0.95)
 
+#100个人中，30个人喜好看电影， 喜好看电影的人的比例p的置信度为95%的CI
 prop.test(30, 100, conf.level = 0.95)
 
+#Z==0.5, p=?
 pnorm(0.5)
 
+#正态分布 N(u, 0.1^2), mean=0.13, n=25, p=?
 pt(0.13, 25)
 
+#t-test
 x <- c (490, 506, 508, 502, 498, 511, 510, 515, 512)
 t.test(x, conf.level = 0.95)
 t.test(x, mu=500, alternative="two.sided")
-?t.test()
+
+# my triage data
 x <- triage$postave
 y <- triage$preave
 t.test(x, y, paired = TRUE, alternative = "two.sided")
 
+# my triage data
 x <- c (triage$preave, grouping(triage$X...group=="GroupA"))
 y <- c (triage$preave, grouping(triage$X...group=="GroupB"))
 t.test(x, y, alternative = "two.sided")
@@ -315,16 +328,16 @@ sum(x)
 summary(x)
 summary(y)
 
-a <- 2.2e-16
-print(a)
-
+#方差的检验
 x <- c (42,65,75,78,59,71,57,68,54,55)
 n <- length(x)
 chi2 <- (n-1)*var(x)/80
 p <- 1-pchisq(chi2, n-1)
 cat("Chi-squared = ", chi2, " p-value= ", p, "\n")
 
+# two sample t-test
 x <- c(20.5, 19.8, 19.7, 20.4, 20.1, 20.0, 19.0, 19.9)
 y <- c(20.7, 19.8, 19.5, 20.8, 20.4, 19.6, 20.2)
 t.test(x, y)
+var.test(x, y)
 
