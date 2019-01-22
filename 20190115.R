@@ -311,10 +311,8 @@ x <- c (triage$preave, grouping(triage$X...group=="GroupA"))
 y <- c (triage$postave, grouping(triage$X...group=="GroupA"))
 t.test(x, y, paired = TRUE, alternative = "two.sided")
 print(x, y)
-sum(x, y)
 sum(x)
 summary(x)
-summary(c(x,y))
 summary(y)
 
 a <- 2.2e-16
@@ -325,4 +323,8 @@ n <- length(x)
 chi2 <- (n-1)*var(x)/80
 p <- 1-pchisq(chi2, n-1)
 cat("Chi-squared = ", chi2, " p-value= ", p, "\n")
+
+x <- c(20.5, 19.8, 19.7, 20.4, 20.1, 20.0, 19.0, 19.9)
+y <- c(20.7, 19.8, 19.5, 20.8, 20.4, 19.6, 20.2)
+t.test(x, y)
 
